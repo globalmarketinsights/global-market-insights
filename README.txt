@@ -30,6 +30,12 @@ index.html       Homepage
 crypto.html      Cryptocurrency education
 forex.html       Forex education
 learn.html       Beginner learning centre
+guides.html      Evergreen guide library
+bitcoin-basics.html Bitcoin fundamentals
+crypto-wallet-security.html Crypto wallet safety
+forex-currency-pairs.html Forex quote basics
+forex-risk-management.html Trading risk education
+investment-scams.html Scam awareness guide
 tools.html       Free browser-based financial calculators
 search.html      Site-wide search
 about.html       About the website
