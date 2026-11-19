@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free crypto, forex and personal finance calculators. Estimate returns, trading position size, percentages and compound growth.">
+<meta name="theme-color" content="#08111f"><title>Free Financial Tools | Global Market Insights</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header><div class="container nav">
+<a class="brand" href="index.html"><span class="logo">GM</span><span>GLOBAL MARKET<br><span class="small">INSIGHTS</span></span></a>
+<button class="menu-btn" aria-label="Open navigation" aria-expanded="false">Menu ☰</button>
+<nav class="navlinks"><a href="index.html">Home</a><a href="crypto.html">Crypto</a><a href="forex.html">Forex</a><a href="learn.html">Learn</a><a class="active" href="tools.html">Tools</a><a href="search.html">Search</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+</div></header>
+<main>
+<div class="container page-hero"><span class="eyebrow">Free financial tools</span><h1>Practical calculators for learning</h1><p class="lead">Try simple calculators using figures you enter yourself. No account, payment or live market data is required.</p></div>
+<div class="container tools-grid">
+<section class="tool-card" aria-labelledby="crypto-tool-title">
+<div class="tag">Crypto and investing</div><h2 id="crypto-tool-title">Investment profit or loss</h2>
+<p>Estimate the result of buying an asset and later selling it. Fees are estimates based on the percentage you enter.</p>
+<form id="profit-form" class="tool-form">
+<label>Amount invested<input id="invested" type="number" min="0" step="any" value="100" required></label>
+<label>Buy price per unit<input id="buy-price" type="number" min="0.00000001" step="any" value="10" required></label>
+<label>Sell price per unit<input id="sell-price" type="number" min="0" step="any" value="12" required></label>
+<label>Trading fee per side (%)<input id="trade-fee" type="number" min="0" max="100" step="any" value="0.1" required></label>
+<button class="btn primary" type="submit">Calculate result</button>
+</form><div class="result" id="profit-result" aria-live="polite">Enter your figures and calculate.</div>
+</section>
+<section class="tool-card" aria-labelledby="position-tool-title">
+<div class="tag">Forex risk management</div><h2 id="position-tool-title">Position size calculator</h2>
+<p>Estimate position size from a planned account risk and stop-loss distance. Enter the pip value for one standard lot in your account currency.</p>
+<form id="position-form" class="tool-form">
+<label>Account balance<input id="account-balance" type="number" min="0" step="any" value="1000" required></label>
+<label>Risk per trade (%)<input id="risk-percent" type="number" min="0" max="100" step="any" value="1" required></label>
+<label>Stop-loss distance (pips)<input id="stop-pips" type="number" min="0.000001" step="any" value="20" required></label>
+<label>Pip value per standard lot<input id="pip-value" type="number" min="0.000001" step="any" value="10" required></label>
+<button class="btn primary" type="submit">Calculate position size</button>
+</form><div class="result" id="position-result" aria-live="polite">Enter your figures and calculate.</div>
+<p class="small">Pip values differ by currency pair, lot size and account currency. Confirm the correct value with your broker's specifications.</p>
+</section>
+<section class="tool-card" aria-labelledby="percentage-tool-title">
+<div class="tag">Everyday finance</div><h2 id="percentage-tool-title">Percentage calculator</h2>
+<p>Find a percentage of any amount.</p>
+<form id="percentage-form" class="tool-form">
+<label>Amount<input id="percent-base" type="number" step="any" value="250" required></label>
+<label>Percentage (%)<input id="percent-rate" type="number" step="any" value="15" required></label>
+<button class="btn primary" type="submit">Calculate percentage</button>
+</form><div class="result" id="percentage-result" aria-live="polite">Enter your figures and calculate.</div>
+</section>
+<section class="tool-card" aria-labelledby="compound-tool-title">
+<div class="tag">Saving and investing</div><h2 id="compound-tool-title">Compound growth estimator</h2>
+<p>Estimate how an initial amount and regular monthly contributions may grow at a constant annual rate.</p>
+<form id="compound-form" class="tool-form">
+<label>Starting amount<input id="starting-amount" type="number" min="0" step="any" value="500" required></label>
+<label>Monthly contribution<input id="monthly-contribution" type="number" min="0" step="any" value="50" required></label>
+<label>Assumed annual growth (%)<input id="annual-growth" type="number" min="-99.99" max="1000" step="any" value="5" required></label>
+<label>Years<input id="growth-years" type="number" min="0" max="100" step="any" value="10" required></label>
+<button class="btn primary" type="submit">Estimate growth</button>
+</form><div class="result" id="compound-result" aria-live="polite">Enter your figures and calculate.</div>
+<p class="small">This is a mathematical illustration, not a forecast. Real returns vary and may be negative.</p>
+</section>
+</div>
+<div class="container"><div class="notice">These tools are for education only. They do not include every fee, tax, slippage, funding cost or market condition. Results are estimates, not trading instructions or financial advice.</div></div>
+</main>
+<footer><div class="container footer-grid"><div><strong>Global Market Insights</strong><p class="small">Clear, beginner-friendly education about crypto, forex and global markets.</p></div><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy</a></div></div><div class="container small">© <span id="year"></span> Global Market Insights. All rights reserved.</div></footer>
+<script src="assets/site.js"></script>
+</body></html>
