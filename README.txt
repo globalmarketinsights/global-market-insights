@@ -1,59 +1,79 @@
-GLOBAL MARKET INSIGHTS — WEBSITE STARTER
-========================================
+GLOBAL MARKET INSIGHTS
+======================
 
-You now have a standalone static website made from HTML, CSS and JavaScript.
-You can edit the files and move the site to another host whenever you want.
+A free, mobile-friendly educational website about cryptocurrency, forex and
+financial markets.
 
-FILES
------
-index.html       Home page
-crypto.html      Crypto education page
-forex.html       Forex education page
-learn.html       Learning centre with working search
-about.html       About page
-contact.html     Contact page (replace placeholder email)
-disclaimer.html  Financial disclaimer
-privacy.html     Starter privacy notice
-assets/style.css Responsive design and styling
-assets/site.js  Mobile menu, search and footer year
-
-IMPORTANT BEFORE PUBLISHING
----------------------------
-1. Replace "Global Market Insights" if you choose another brand.
-2. In contact.html replace YOUR-EMAIL@example.com with an email address you control.
-3. Review the privacy notice for the tools you actually add.
-4. Add your own original articles and cite reliable sources.
-5. Do not publish fake breaking news, fabricated prices, guaranteed returns,
-   trading signals, or claims that you are licensed if you are not.
-6. Check local laws and platform/payment eligibility before monetizing.
-7. Add clear affiliate disclosures beside affiliate links if you later use them.
-
-HOW TO PUBLISH FREE WITH CLOUDFLARE PAGES (ANDROID-FRIENDLY OVERVIEW)
----------------------------------------------------------------------
-You can use a browser on your Android phone.
-
-A. Create/sign in to a GitHub account: https://github.com/
-B. Create a new repository, for example: global-market-insights
-C. Upload all files and folders from this ZIP. Keep the assets folder.
-D. Create/sign in to Cloudflare: https://dash.cloudflare.com/
-E. Open Workers & Pages, choose Create application, then Pages.
-F. Connect to your GitHub repository and deploy.
-G. For a plain HTML site, use no build command and set the output directory
-   to the repository root (often shown as / or . depending on the interface).
-H. Cloudflare will provide a pages.dev address after successful deployment.
-
-The Cloudflare/GitHub interface may change. Follow their current instructions.
-You do not need a paid custom domain to test the free pages.dev address.
-
-OWNERSHIP
----------
-You own and can edit the website source files in your repository. Hosting is
-provided by Cloudflare Pages, so the live site still relies on that host.
-A custom domain is optional and normally costs money; it is not required to start.
-
-MONETIZATION
+LIVE WEBSITE
 ------------
-A website is not automatically paid because it is online or receives visits.
-Advertising and affiliate networks have eligibility, quality, policy, identity
-and payment requirements. Check whether a program currently accepts publishers
-in Nigeria and supports a payment method you can receive before investing time.
+https://globalmarketinsights.github.io/global-market-insights/
+
+SOURCE REPOSITORY
+-----------------
+https://github.com/globalmarketinsights/global-market-insights
+
+HOSTING AND BUILD
+-----------------
+- Hosting: GitHub Pages (free plan).
+- Framework: Jekyll using the GitHub Pages gem.
+- Deployment: GitHub Actions workflow in .github/workflows/pages.yml.
+- Search: Pagefind creates a static search index during each build.
+- Base URL: /global-market-insights
+
+The workflow builds the Jekyll site, creates the Pagefind index, uploads the
+Pages artifact and deploys it when changes reach the main branch. Pull requests
+run the build checks before changes are merged.
+
+SITE PAGES
+----------
+index.html       Homepage
+crypto.html      Cryptocurrency education
+forex.html       Forex education
+learn.html       Beginner learning centre
+tools.html       Free browser-based financial calculators
+search.html      Site-wide search
+about.html       About the website
+contact.html     Contact information
+disclaimer.html  Financial and affiliate disclaimer
+privacy.html     Privacy notice
+404.html         Custom not-found page
+
+TOOLS
+-----
+The Tools page currently includes:
+- Investment profit/loss estimate with entered trading fees
+- Forex position size estimate based on account risk and pip value
+- Percentage calculator
+- Compound growth estimator with monthly contributions
+
+Calculators use manual inputs and run in the visitor's browser. They do not
+fetch live prices and are not financial advice or trading instructions.
+
+EDITING SAFELY
+--------------
+1. Make changes on a separate branch.
+2. Open a pull request into main.
+3. Let the GitHub Actions build complete successfully.
+4. Review and merge the pull request.
+5. GitHub Pages deploys changes pushed to main.
+
+Do not replace the existing website wholesale. Preserve working pages and
+assets unless a change is specifically needed.
+
+SAFETY AND MONETIZATION
+-----------------------
+- Keep educational content accurate, original and evergreen where practical.
+- Never publish fabricated prices, fake breaking news, guaranteed returns or
+  trading signals.
+- Clearly disclose affiliate relationships beside qualifying links.
+- Verify affiliate approval, country eligibility, payment methods and terms
+  before publishing promotions.
+- Do not claim that a broker, exchange or investment is safe or suitable for
+  every visitor.
+- Check applicable laws and platform rules before monetizing.
+
+COSTS
+-----
+The website is designed to run on free GitHub Pages hosting and free build
+tools. A custom domain, paid APIs and paid subscriptions are optional and are
+not required for the current setup.
