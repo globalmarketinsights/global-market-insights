@@ -1,0 +1,18 @@
+title: Global Market Insights
+description: Independent, evergreen education about cryptocurrency, forex and financial markets.
+url: "https://globalmarketinsights.github.io"
+baseurl: "/global-market-insights"
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.txt
+  - README.md
+  - .github
+  - .gitignore
