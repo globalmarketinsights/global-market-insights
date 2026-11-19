@@ -36,6 +36,10 @@ crypto-wallet-security.html Crypto wallet safety
 forex-currency-pairs.html Forex quote basics
 forex-risk-management.html Trading risk education
 investment-scams.html Scam awareness guide
+blockchain-basics.html Blockchain fundamentals
+stablecoins-explained.html Stablecoin designs and risks
+forex-trading-costs.html Forex spreads, commissions and swaps
+forex-leverage-margin.html Leverage and margin education
 tools.html       Free browser-based financial calculators
 search.html      Site-wide search
 about.html       About the website
@@ -46,11 +50,16 @@ privacy.html     Privacy notice
 
 TOOLS
 -----
-The Tools page currently includes:
+The Tools page currently includes nine free calculators:
 - Investment profit/loss estimate with entered trading fees
 - Forex position size estimate based on account risk and pip value
 - Percentage calculator
 - Compound growth estimator with monthly contributions
+- Average purchase price across two purchases
+- Percentage-based transaction fee estimator
+- Drawdown and recovery calculator
+- Risk-to-reward ratio calculator
+- Simplified margin requirement estimator
 
 Calculators use manual inputs and run in the visitor's browser. They do not
 fetch live prices and are not financial advice or trading instructions.
@@ -80,6 +89,6 @@ SAFETY AND MONETIZATION
 
 COSTS
 -----
-The website is designed to run on free GitHub Pages hosting and free build
+The website now includes a refreshed responsive visual design, improved homepage and learning hubs, expanded guide library, and nine browser-only calculators. The website is designed to run on free GitHub Pages hosting and free build
 tools. A custom domain, paid APIs and paid subscriptions are optional and are
 not required for the current setup.
