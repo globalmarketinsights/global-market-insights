@@ -2,7 +2,7 @@ name: Build and deploy Global Market Insights
 
 on:
   push:
-    branches: [main, site-foundation]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
