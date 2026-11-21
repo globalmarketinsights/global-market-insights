@@ -8,6 +8,11 @@
   const overlay=source.cloneNode(true);
   overlay.id="mobile-menu-overlay";
   overlay.classList.add("mobile-menu-overlay");
+  const closeButton=document.createElement("button");
+  closeButton.type="button";
+  closeButton.className="mobile-menu-close";
+  closeButton.textContent="Close ✕";
+  overlay.insertBefore(closeButton,overlay.firstChild);
   document.body.appendChild(overlay);
   const closeMenu=()=>{
     toggle.checked=false;
@@ -22,7 +27,7 @@
     document.body.style.position="";
   });
   overlay.addEventListener("click",event=>{
-    if(event.target.closest("a")) closeMenu();
+    if(event.target.closest("a")||event.target.closest(".mobile-menu-close")) closeMenu();
   });
   window.addEventListener("keydown",event=>{
     if(event.key==="Escape") closeMenu();
