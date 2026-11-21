@@ -265,3 +265,28 @@ footer{background:rgba(4,10,22,.8);border-color:rgba(85,152,255,.2)}
 :focus-visible{outline-color:var(--gold)}
 ::selection{background:rgba(85,152,255,.38);color:#fff}
 @media(prefers-reduced-motion:reduce){.card,.article,.tool-card,.btn{transition:none!important}}
+
+
+/* Featured ebook promotion: prominent above the homepage hero and mobile friendly */
+.ebook-promo{
+ display:flex;align-items:center;justify-content:space-between;gap:24px;
+ margin-top:26px;padding:22px 26px;
+ border:1px solid rgba(83,230,208,.38);border-radius:20px;
+ background:linear-gradient(112deg,rgba(24,65,105,.96),rgba(13,39,65,.98) 58%,rgba(10,48,57,.96));
+ box-shadow:0 18px 42px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.04)
+}
+.ebook-promo-copy{max-width:680px}
+.ebook-promo .eyebrow{font-size:.68rem}
+.ebook-promo h2{font-size:clamp(1.55rem,3vw,2.15rem);margin:9px 0 7px}
+.ebook-promo p{margin:0;color:#d0deef;line-height:1.65}
+.ebook-promo-action{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:180px}
+.ebook-promo-price{font-size:1.15rem;font-weight:900;color:var(--cyan)}
+.ebook-promo-price small{font-size:.75rem;color:var(--muted);font-weight:650}
+.ebook-promo-action .btn{white-space:nowrap}
+.ebook-details{font-size:.8rem;color:#b9d5ff;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:650px){
+ .ebook-promo{align-items:stretch;flex-direction:column;margin-top:17px;padding:20px;gap:15px}
+ .ebook-promo-action{align-items:stretch;min-width:0}
+ .ebook-promo-action .btn{width:100%}
+ .ebook-promo-price{text-align:center}
+}
