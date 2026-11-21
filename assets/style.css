@@ -345,7 +345,8 @@ footer{background:rgba(4,10,22,.8);border-color:rgba(85,152,255,.2)}
     -webkit-overflow-scrolling:touch;
   }
   body.mobile-menu-open #mobile-menu-overlay.mobile-menu-overlay{display:flex!important}
-  #mobile-menu-overlay.mobile-menu-overlay .mobile-menu-close{display:block!important;position:sticky!important;top:0!important;align-self:flex-end!important;min-height:44px!important;margin:0 0 8px auto!important;padding:10px 15px!important;background:#10243a!important;color:#fff!important;border:1px solid rgba(112,234,213,.4)!important;border-radius:10px!important;font-weight:800!important;z-index:2!important}\n  #mobile-menu-overlay.mobile-menu-overlay a{
+  #mobile-menu-overlay.mobile-menu-overlay .mobile-menu-close{display:block!important;position:sticky!important;top:0!important;align-self:flex-end!important;min-height:44px!important;margin:0 0 8px auto!important;padding:10px 15px!important;background:#10243a!important;color:#fff!important;border:1px solid rgba(112,234,213,.4)!important;border-radius:10px!important;font-weight:800!important;z-index:2!important}
+  #mobile-menu-overlay.mobile-menu-overlay a{
     display:block!important;
     width:100%!important;
     box-sizing:border-box!important;
