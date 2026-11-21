@@ -1,10 +1,11 @@
-const menuButton = document.querySelector(".menu-btn");
-const nav = document.querySelector(".navlinks");
-if (menuButton && nav) {
-  menuButton.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    menuButton.setAttribute("aria-expanded", String(open));
-  });
+function toggleSiteMenu() {
+  const menuButton = document.querySelector(".menu-btn");
+  const nav = document.querySelector(".navlinks");
+  if (!menuButton || !nav) return;
+  const open = nav.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  menuButton.textContent = open ? "Close ✕" : "Menu ☰";
 }
 const search = document.querySelector("#articleSearch");
 if (search) {
