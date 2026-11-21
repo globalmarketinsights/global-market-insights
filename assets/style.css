@@ -327,3 +327,14 @@ footer{background:rgba(4,10,22,.8);border-color:rgba(85,152,255,.2)}
  header .navlinks.open a[href="about.html"]{order:10!important}
  header .navlinks.open a[href="contact.html"]{order:11!important}
 }
+
+/* Opera Mini / script-independent mobile navigation: keep all links visible without requiring a tap */
+@media(max-width:760px){
+ header .nav{min-height:0;display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:12px 0}
+ header .nav .brand{align-self:flex-start}
+ header .nav .menu-btn{display:none!important}
+ header .navlinks,header .navlinks.open{display:flex!important;position:static!important;inset:auto!important;width:100%!important;height:auto!important;max-height:none!important;overflow:visible!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:0 0 6px!important;margin:0!important;background:#071321!important;border:0!important;border-top:1px solid rgba(112,234,213,.2)!important;box-shadow:none!important;z-index:auto!important}
+ header .navlinks a{display:block!important;min-height:44px!important;flex:0 0 auto!important;padding:10px 12px!important;margin:0!important;border-bottom:1px solid rgba(174,199,231,.15)!important;white-space:normal!important;font-size:1rem!important;line-height:1.4!important}
+ header .navlinks a[href="crypto-made-simple.html"]{color:#70ead5!important;font-weight:900!important;background:rgba(112,234,213,.08)!important}
+ header .navlinks a[href="partners.html"]{color:#f5d17d!important;font-weight:900!important;background:rgba(245,209,125,.07)!important}
+}
