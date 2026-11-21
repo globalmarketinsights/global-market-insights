@@ -290,3 +290,6 @@ footer{background:rgba(4,10,22,.8);border-color:rgba(85,152,255,.2)}
  .ebook-promo-action .btn{width:100%}
  .ebook-promo-price{text-align:center}
 }
+
+/* Mobile navigation fix: allow the full menu to scroll on smaller screens */
+@media(max-width:760px){.navlinks.open{max-height:calc(100dvh - 84px);overflow-y:auto;overscroll-behavior:contain;padding-bottom:28px}}
