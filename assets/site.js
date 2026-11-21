@@ -75,3 +75,21 @@ bindCalculator("fee-form",()=>{const amount=numberFrom("fee-amount"),rate=number
 bindCalculator("drawdown-form",()=>{const peak=numberFrom("peak-value"),current=numberFrom("current-value");if(!(peak>0&&current>=0)){showResult("drawdown-result","Enter a positive peak and a non-negative current value.");return;}const loss=(peak-current)/peak*100,recovery=current===0?Infinity:(peak-current)/current*100;showResult("drawdown-result",`Drawdown from peak: <strong>${loss.toFixed(2)}%</strong><br>Gain needed to recover: <strong>${Number.isFinite(recovery)?recovery.toFixed(2)+"%":"Not defined from zero"}</strong>`);});
 bindCalculator("rr-form",()=>{const entry=numberFrom("rr-entry"),stop=numberFrom("rr-stop"),target=numberFrom("rr-target");const risk=Math.abs(entry-stop),reward=Math.abs(target-entry);if(!(Number.isFinite(entry)&&risk>0&&reward>0)||((stop-entry)*(target-entry)>=0)){showResult("rr-result","For a long example, put the stop below entry and target above it; for a short example, put the stop above entry and target below it.");return;}showResult("rr-result",`Price risk: <strong>${risk}</strong><br>Potential price reward: <strong>${reward}</strong><br>Reward-to-risk: <strong>1:${(reward/risk).toFixed(2)}</strong>`);});
 bindCalculator("margin-form",()=>{const notional=numberFrom("notional-value"),leverage=numberFrom("leverage-value");if(!(notional>=0&&leverage>0)){showResult("margin-result","Enter a non-negative position value and leverage greater than zero.");return;}showResult("margin-result",`Estimated initial margin: <strong>${money(notional/leverage)}</strong><br>Illustrative margin rate: <strong>${(100/leverage).toFixed(2)}%</strong>`);});
+
+
+// Forex pip movement and illustrative profit/loss calculator.
+const pipForm=document.getElementById("pip-form");
+if(pipForm) pipForm.addEventListener("submit",event=>{
+  event.preventDefault();
+  const direction=document.getElementById("pip-direction").value;
+  const entry=numberFrom("pip-entry"), exit=numberFrom("pip-exit"), pipSize=numberFrom("pip-size"), lots=numberFrom("pip-lots"), pipValue=numberFrom("pip-cash-value");
+  if(!(entry>0&&exit>0&&pipSize>0&&lots>0&&pipValue>0)){
+    showResult("pip-result","Please enter positive prices, pip size, lot size and pip value.");
+    return;
+  }
+  const movement=(direction==="long"?exit-entry:entry-exit);
+  const pips=movement/pipSize;
+  const estimate=pips*pipValue*lots;
+  const label=estimate>0?"Illustrative profit":estimate<0?"Illustrative loss":"Break-even movement";
+  showResult("pip-result",`Pip movement: <strong>${pips.toFixed(2)} pips</strong><br>${label}: <strong>${money(Math.abs(estimate))}</strong><br>Estimated result in account currency: <strong>${estimate<0?"−":""}${money(Math.abs(estimate))}</strong>`);
+});
