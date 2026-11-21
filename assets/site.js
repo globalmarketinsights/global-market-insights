@@ -1,3 +1,37 @@
+
+// Reliable mobile menu overlay: clone navigation to the document body so it is
+// positioned against the viewport, not inside the sticky/scrolled header.
+(function(){
+  const toggle=document.getElementById("mobile-menu-toggle");
+  const source=document.querySelector("header .navlinks");
+  if(!toggle||!source||document.getElementById("mobile-menu-overlay")) return;
+  const overlay=source.cloneNode(true);
+  overlay.id="mobile-menu-overlay";
+  overlay.classList.add("mobile-menu-overlay");
+  document.body.appendChild(overlay);
+  const closeMenu=()=>{
+    toggle.checked=false;
+    document.body.classList.remove("mobile-menu-open");
+    document.body.style.overflow="";
+    document.body.style.position="";
+  };
+  toggle.addEventListener("change",()=>{
+    const open=toggle.checked;
+    document.body.classList.toggle("mobile-menu-open",open);
+    document.body.style.overflow=open?"hidden":"";
+    document.body.style.position="";
+  });
+  overlay.addEventListener("click",event=>{
+    if(event.target.closest("a")) closeMenu();
+  });
+  window.addEventListener("keydown",event=>{
+    if(event.key==="Escape") closeMenu();
+  });
+  window.addEventListener("resize",()=>{
+    if(window.innerWidth>760) closeMenu();
+  });
+})();
+
 function toggleSiteMenu() {
   const menuButton = document.querySelector(".menu-btn");
   const nav = document.querySelector(".navlinks");
