@@ -1,7 +1,7 @@
 title: Global Market Insights
 description: Independent, evergreen education about cryptocurrency, forex and financial markets.
 url: "https://globalmarketinsights.github.io"
-baseurl: "/global-market-insights"
+baseurl: ""
 markdown: kramdown
 permalink: pretty
 plugins:
