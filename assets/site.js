@@ -1,4 +1,25 @@
 
+// Keep the primary navigation identical on every page. This prevents older
+// page-specific headers from hiding sections that are available on the home page.
+(function(){
+  const nav=document.querySelector("header .navlinks");
+  if(!nav) return;
+  const links=[
+    ["Home","index.html"],["Crypto","crypto.html"],["Forex","forex.html"],
+    ["Learn","learn.html"],["Guides","guides.html"],["Our Ebook","crypto-made-simple.html"],
+    ["Tools","tools.html"],["Partners","partners.html"],["Reviews","reviews.html"],
+    ["Insights","insights.html"],["Opportunities","opportunities.html"],
+    ["Resources","resources.html"],["Downloads","downloads.html"],
+    ["Services","services.html"],["Advertise","advertise.html"],
+    ["Search","search.html"],["About","about.html"],["Contact","contact.html"]
+  ];
+  const path=window.location.pathname.split("/").filter(Boolean).pop()||"index.html";
+  nav.innerHTML=links.map(([label,href])=>{
+    const active=(path===href || (path==="index.html"&&href==="index.html"));
+    return '<a href="'+href+'"'+(active?' class="active" aria-current="page"':'')+'>'+label+'</a>';
+  }).join("");
+})();
+
 // Reliable mobile menu overlay: clone navigation to the document body so it is
 // positioned against the viewport, not inside the sticky/scrolled header.
 (function(){

@@ -365,3 +365,15 @@ footer{background:rgba(4,10,22,.8);border-color:rgba(85,152,255,.2)}
   #mobile-menu-overlay{display:none!important}
   header .nav nav.navlinks{display:flex!important;position:static!important}
 }
+
+
+/* Allow the expanded site-wide navigation to wrap cleanly on desktop/tablet. */
+@media (min-width: 761px) {
+  header .nav { align-items: center; }
+  header .nav .navlinks {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    row-gap: 2px;
+    max-width: calc(100% - 190px);
+  }
+}
