@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://globalmarketinsights.github.io/global-market-insights/sitemap.xml
+Sitemap: https://globalmarketinsights.github.io/sitemap.xml
