@@ -377,3 +377,27 @@ footer{background:rgba(4,10,22,.8);border-color:rgba(85,152,255,.2)}
     max-width: calc(100% - 190px);
   }
 }
+
+
+/* Visual upgrade: ebook storefront and illustrated learning sections */
+.ebook-library{padding:12px 0 48px}
+.ebook-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;align-items:stretch}
+.ebook-product{display:grid;grid-template-columns:minmax(180px,.78fr) minmax(0,1.22fr);gap:22px;align-items:center;padding:22px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(20,38,64,.96),rgba(10,24,40,.98));box-shadow:var(--shadow)}
+.ebook-cover-wrap{display:flex;justify-content:center;align-items:center;min-width:0}
+.ebook-cover{display:block;width:100%;max-width:250px;aspect-ratio:600/820;object-fit:cover;border-radius:10px;box-shadow:0 18px 42px rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.13)}
+.ebook-product-info h2{margin:10px 0 6px;font-size:1.55rem}
+.ebook-subtitle{color:#dce8f7;font-weight:650;line-height:1.5}
+.ebook-product-info ul{padding-left:20px;color:var(--muted)}
+.ebook-price{font-size:1.7rem;font-weight:900;color:var(--cyan);margin:15px 0 10px}
+.ebook-price span{font-size:.8rem;font-weight:600;color:var(--muted)}
+.ebook-buy{display:flex;width:100%;justify-content:center;text-align:center}
+.ebook-product-info .small{margin-top:10px}
+.visual-topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:12px auto 32px}
+.visual-topic{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:var(--panel)}
+.visual-topic img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.visual-topic div{padding:16px 18px}
+.visual-topic h3{margin:0 0 5px}
+.topic-visual{margin:0 auto 26px;max-width:var(--max);padding:0 21px}
+.topic-visual img{display:block;width:100%;max-height:300px;object-fit:cover;border:1px solid var(--line);border-radius:22px}
+@media(max-width:850px){.ebook-products{grid-template-columns:1fr}.ebook-product{grid-template-columns:minmax(150px,.7fr) minmax(0,1.3fr)}}
+@media(max-width:560px){.ebook-product{grid-template-columns:1fr;padding:17px}.ebook-cover{max-width:230px}.ebook-product-info{text-align:left}.ebook-buy{width:100%}.visual-topic-grid{grid-template-columns:1fr}.topic-visual{padding:0 16px}}
