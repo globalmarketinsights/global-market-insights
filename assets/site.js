@@ -13,9 +13,9 @@
     ["Advertise","advertise.html"],["About","about.html"],["Contact","contact.html"]
   ];
   const path=window.location.pathname.split("/").filter(Boolean).pop()||"index.html";
-  nav.innerHTML=links.map(([label,href])=>{
+  nav.innerHTML=links.map(([label,href],i)=>{
     const active=(path===href || (path==="index.html"&&href==="index.html"));
-    return '<a href="'+href+'"'+(active?' class="active" aria-current="page"':'')+'>'+label+'</a>';
+    return '<a href="'+href+'" class="'+(i>=9?'nav-secondary ':'')+(active?'active':'')+'"'+(active?' aria-current="page"':'')+'>'+label+'</a>;
   }).join("");
 })();
 
