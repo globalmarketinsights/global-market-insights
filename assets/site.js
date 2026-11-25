@@ -19,46 +19,40 @@
   }).join("");
 })();
 
-// Reliable mobile menu: build a complete, independent overlay menu on every page.
+// Reliable mobile menu: checkbox state controls a detached overlay.
 (function(){
   const toggle=document.getElementById("mobile-menu-toggle");
+  const label=document.querySelector(".menu-toggle-label");
   const source=document.querySelector("header .navlinks");
-  if(!toggle||!source) return;
-  let overlay=document.getElementById("mobile-menu-overlay");
-  if(overlay) overlay.remove();
-  overlay=document.createElement("nav");
+  if(!toggle||!label||!source) return;
+  const previous=document.getElementById("mobile-menu-overlay");
+  if(previous) previous.remove();
+  const overlay=document.createElement("nav");
   overlay.id="mobile-menu-overlay";
   overlay.className="mobile-menu-overlay";
-  overlay.setAttribute("aria-label","Mobile navigation");
-  const closeButton=document.createElement("button");
-  closeButton.type="button";
-  closeButton.className="mobile-menu-close";
-  closeButton.textContent="Close ✕";
-  overlay.appendChild(closeButton);
-  // Copy every navigation destination, including links hidden from the desktop row.
+  overlay.setAttribute("aria-label","Site navigation");
+  const close=document.createElement("button");
+  close.type="button"; close.className="mobile-menu-close"; close.textContent="Close ✕";
+  overlay.appendChild(close);
   source.querySelectorAll("a").forEach(link=>{
     const item=document.createElement("a");
-    item.href=link.getAttribute("href");
-    item.textContent=link.textContent;
+    item.href=link.href; item.textContent=link.textContent.trim();
     if(link.classList.contains("active")){item.classList.add("active");item.setAttribute("aria-current","page");}
     overlay.appendChild(item);
   });
   document.body.appendChild(overlay);
-  const closeMenu=()=>{
-    toggle.checked=false;
-    document.body.classList.remove("mobile-menu-open");
-    document.body.style.overflow="";
-  };
-  toggle.addEventListener("change",()=>{
-    const open=toggle.checked;
-    document.body.classList.toggle("mobile-menu-open",open);
+  const sync=open=>{
+    toggle.checked=!!open;
+    label.setAttribute("aria-expanded",String(!!open));
+    document.body.classList.toggle("mobile-menu-open",!!open);
     document.body.style.overflow=open?"hidden":"";
-  });
+  };
+  toggle.addEventListener("change",()=>sync(toggle.checked));
   overlay.addEventListener("click",event=>{
-    if(event.target.closest("a")||event.target.closest(".mobile-menu-close")) closeMenu();
+    if(event.target.closest("a")||event.target.closest(".mobile-menu-close"))sync(false);
   });
-  window.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu();});
-  window.addEventListener("resize",()=>{if(window.innerWidth>760)closeMenu();});
+  window.addEventListener("keydown",event=>{if(event.key==="Escape")sync(false);});
+  window.addEventListener("resize",()=>{if(window.innerWidth>760)sync(false);});
 })();
 function toggleSiteMenu() {
   const menuButton = document.querySelector(".menu-btn");
