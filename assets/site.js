@@ -6,12 +6,11 @@
   if(!nav) return;
   const links=[
     ["Home","index.html"],["Crypto","crypto.html"],["Forex","forex.html"],
-    ["Learn","learn.html"],["Guides","guides.html"],["Our Ebook","crypto-made-simple.html"],
-    ["Tools","tools.html"],["Partners","partners.html"],["Reviews","reviews.html"],
-    ["Insights","insights.html"],["Opportunities","opportunities.html"],
-    ["Resources","resources.html"],["Downloads","downloads.html"],
-    ["Services","services.html"],["Advertise","advertise.html"],
-    ["Search","search.html"],["About","about.html"],["Contact","contact.html"]
+    ["Tools","tools.html"],["Academy","learn.html"],["Guides","guides.html"],
+    ["Reviews","reviews.html"],["eBooks","crypto-made-simple.html"],["Search","search.html"],
+    ["Partners","partners.html"],["Insights","insights.html"],["Opportunities","opportunities.html"],
+    ["Resources","resources.html"],["Downloads","downloads.html"],["Services","services.html"],
+    ["Advertise","advertise.html"],["About","about.html"],["Contact","contact.html"]
   ];
   const path=window.location.pathname.split("/").filter(Boolean).pop()||"index.html";
   nav.innerHTML=links.map(([label,href])=>{
