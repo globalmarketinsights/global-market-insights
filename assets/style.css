@@ -540,3 +540,43 @@ footer .small{color:#aebad8}
 /* Compact desktop navigation: show core sections; mobile overlay retains full sitemap */
 @media(min-width:761px){header .navlinks .nav-secondary{display:none!important}header .navlinks{margin-left:auto;gap:1px}}
 @media(max-width:760px){#mobile-menu-overlay.mobile-menu-overlay .nav-secondary{display:block!important}}
+
+/* Contrast and readability correction: clean light surfaces, near-black body copy */
+body{background:#f5f6f8!important;color:#111827!important;font-weight:450}
+main{color:#111827}
+p,li,small,.sub,.lead,.section-head p,.card p,.article p,.tool-card p,.content p,.content li{color:#263247!important}
+h1,h2,h3,h4,strong,b,.card h3,.article h3,.tool-card h2,.section-head h2,.compact-section-head h2{color:#111827!important;font-weight:750}
+a{color:#087f78}
+.card,.article,.tool-card,.visual-topic,.compact-category,.compact-list-item,.compact-tools>a,.compact-book,.ebook-product,.compact-more-links a{background:#fff!important;color:#111827!important;border:1px solid #d6dde6!important;box-shadow:0 2px 8px rgba(18,35,65,.07)!important}
+.card p,.article p,.tool-card>p,.compact-category small,.compact-list-item small,.compact-tools small,.compact-book-info small,.ebook-product-info p,.ebook-product-info ul,.content p,.content li{color:#263247!important}
+.card h3,.article h3,.tool-card h2,.compact-list-item b,.compact-tools b,.compact-book-info strong,.ebook-product-info h2{color:#111827!important}
+.tag,.article-meta{color:#087f78!important}
+.btn{font-weight:700}
+.btn.primary{background:#078e84!important;color:#fff!important}
+.price,.ebook-price{color:#087f78!important;font-weight:800}
+.compact-section-head a,.compact-book-info .price{color:#087f78!important}
+.compact-hero{color:#fff!important;background:linear-gradient(110deg,#11194c,#1b2c66 68%,#175a78)!important}
+.compact-hero h1,.compact-hero h1 span,.compact-hero p,.compact-hero .eyebrow{color:#fff!important}
+.compact-hero h1 span{color:#74e0d2!important}
+.compact-hero .btn:not(.primary){color:#fff!important;border-color:#8da4dc!important;background:rgba(10,20,55,.45)!important}
+.compact-hero .btn.primary{color:#06251f!important;background:#42c9b7!important}
+.compact-newsletter{background:#e2f4f1!important;color:#102b35!important;border:1px solid #b8dfd8!important}
+.compact-newsletter h2,.compact-newsletter p,.compact-newsletter small{color:#142b3b!important}
+.notice,.compact-risk{color:#3d3217!important;background:#fff7e3!important;border-color:#e7d6a2!important}
+.bookstore-heading h1,.bookstore-heading p{color:#111827!important}
+footer{background:#11194c!important;color:#e5eaf5!important}
+footer a{color:#dce8fa!important}
+footer .small{color:#c4d1ea!important}
+#mobile-menu-overlay.mobile-menu-overlay{background:#11194c!important;color:#fff!important}
+#mobile-menu-overlay.mobile-menu-overlay a{color:#f7f9ff!important;font-weight:650!important}
+#mobile-menu-overlay.mobile-menu-overlay a.active{color:#72dfd1!important}
+#mobile-menu-overlay.mobile-menu-overlay .mobile-menu-close{color:#fff!important;background:#23346c!important}
+@media(max-width:760px){
+  .compact-category strong,.compact-book-info strong,.compact-list-item b,.compact-tools b{font-size:.82rem!important;font-weight:750!important}
+  .compact-category small,.compact-list-item small,.compact-tools small,.compact-book-info small{font-size:.72rem!important;color:#344257!important}
+  .compact-section-head h2{font-size:1.12rem!important}
+  .compact-hero p{color:#f1f5ff!important}
+  .ebook-product-info h2{color:#111827!important}
+  .ebook-product-info ul{color:#263247!important}
+  .menu-toggle-label{background:#22346c!important;color:#fff!important}
+}
