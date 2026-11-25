@@ -52,7 +52,7 @@
     if(event.target.closest("a")||event.target.closest(".mobile-menu-close"))sync(false);
   });
   window.addEventListener("keydown",event=>{if(event.key==="Escape")sync(false);});
-  window.addEventListener("resize",()=>{if(window.innerWidth>760)sync(false);});
+  window.addEventListener("resize",()=>{if(window.innerWidth>1100)sync(false);});
 })();
 function toggleSiteMenu() {
   const menuButton = document.querySelector(".menu-btn");
