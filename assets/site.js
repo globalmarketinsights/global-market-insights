@@ -19,44 +19,47 @@
   }).join("");
 })();
 
-// Reliable mobile menu overlay: clone navigation to the document body so it is
-// positioned against the viewport, not inside the sticky/scrolled header.
+// Reliable mobile menu: build a complete, independent overlay menu on every page.
 (function(){
   const toggle=document.getElementById("mobile-menu-toggle");
   const source=document.querySelector("header .navlinks");
-  if(!toggle||!source||document.getElementById("mobile-menu-overlay")) return;
-  const overlay=source.cloneNode(true);
+  if(!toggle||!source) return;
+  let overlay=document.getElementById("mobile-menu-overlay");
+  if(overlay) overlay.remove();
+  overlay=document.createElement("nav");
   overlay.id="mobile-menu-overlay";
-  overlay.classList.add("mobile-menu-overlay");
+  overlay.className="mobile-menu-overlay";
+  overlay.setAttribute("aria-label","Mobile navigation");
   const closeButton=document.createElement("button");
   closeButton.type="button";
   closeButton.className="mobile-menu-close";
   closeButton.textContent="Close ✕";
-  overlay.insertBefore(closeButton,overlay.firstChild);
+  overlay.appendChild(closeButton);
+  // Copy every navigation destination, including links hidden from the desktop row.
+  source.querySelectorAll("a").forEach(link=>{
+    const item=document.createElement("a");
+    item.href=link.getAttribute("href");
+    item.textContent=link.textContent;
+    if(link.classList.contains("active")){item.classList.add("active");item.setAttribute("aria-current","page");}
+    overlay.appendChild(item);
+  });
   document.body.appendChild(overlay);
   const closeMenu=()=>{
     toggle.checked=false;
     document.body.classList.remove("mobile-menu-open");
     document.body.style.overflow="";
-    document.body.style.position="";
   };
   toggle.addEventListener("change",()=>{
     const open=toggle.checked;
     document.body.classList.toggle("mobile-menu-open",open);
     document.body.style.overflow=open?"hidden":"";
-    document.body.style.position="";
   });
   overlay.addEventListener("click",event=>{
     if(event.target.closest("a")||event.target.closest(".mobile-menu-close")) closeMenu();
   });
-  window.addEventListener("keydown",event=>{
-    if(event.key==="Escape") closeMenu();
-  });
-  window.addEventListener("resize",()=>{
-    if(window.innerWidth>760) closeMenu();
-  });
+  window.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu();});
+  window.addEventListener("resize",()=>{if(window.innerWidth>760)closeMenu();});
 })();
-
 function toggleSiteMenu() {
   const menuButton = document.querySelector(".menu-btn");
   const nav = document.querySelector(".navlinks");
