@@ -580,3 +580,15 @@ footer .small{color:#c4d1ea!important}
   .ebook-product-info ul{color:#263247!important}
   .menu-toggle-label{background:#22346c!important;color:#fff!important}
 }
+
+/* Final mobile navigation override to remove competing dropdown behavior. */
+@media(max-width:760px){
+  header .nav nav.navlinks{display:none!important}
+  #mobile-menu-overlay.mobile-menu-overlay{display:none!important;position:fixed!important;inset:0!important;z-index:99999!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-height:100dvh!important;box-sizing:border-box!important;overflow-y:auto!important;overflow-x:hidden!important;padding:16px 18px 28px!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;background:#11194c!important;color:#fff!important}
+  body.mobile-menu-open #mobile-menu-overlay.mobile-menu-overlay{display:flex!important}
+  #mobile-menu-overlay .mobile-menu-close{position:sticky!important;top:0!important;align-self:flex-end!important;margin:0 0 8px auto!important;min-height:46px!important;padding:10px 15px!important;background:#22346c!important;color:#fff!important;border:1px solid #5267a4!important;border-radius:9px!important;font-weight:800!important;z-index:2!important}
+  #mobile-menu-overlay a{display:block!important;width:100%!important;box-sizing:border-box!important;padding:13px 12px!important;min-height:50px!important;margin:0!important;border-bottom:1px solid rgba(255,255,255,.18)!important;color:#f7f9ff!important;font-weight:700!important;font-size:1rem!important;line-height:1.4!important;white-space:normal!important}
+  #mobile-menu-overlay a.active{color:#72dfd1!important;background:rgba(114,223,209,.09)!important}
+  .menu-toggle-label{display:inline-flex!important;min-height:44px!important;align-items:center!important;justify-content:center!important}
+}
+@media(min-width:761px){#mobile-menu-overlay{display:none!important}body.mobile-menu-open{overflow:auto!important}}
