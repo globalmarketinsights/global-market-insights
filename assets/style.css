@@ -804,3 +804,49 @@ footer .small{color:#c4d1ea!important}
     line-height:1.2!important; font-weight:750!important; white-space:nowrap!important;
   }
 }
+
+
+/* DESKTOP MENU SCROLL ACCESSIBILITY — horizontal scrolling only; mobile menu untouched. */
+@media (min-width: 761px) {
+  header .nav {
+    flex-wrap: nowrap !important;
+    min-width: 0 !important;
+  }
+  header .nav .brand {
+    flex: 0 0 auto !important;
+  }
+  header .nav nav.navlinks {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    justify-content: flex-start !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #53e6d0 rgba(143,177,225,.22) !important;
+    -webkit-overflow-scrolling: touch !important;
+    cursor: grab !important;
+    padding: 0 0 7px !important;
+  }
+  header .nav nav.navlinks:active {
+    cursor: grabbing !important;
+  }
+  header .nav nav.navlinks::-webkit-scrollbar {
+    display: block !important;
+    height: 6px !important;
+  }
+  header .nav nav.navlinks::-webkit-scrollbar-track {
+    background: rgba(143,177,225,.22) !important;
+    border-radius: 8px !important;
+  }
+  header .nav nav.navlinks::-webkit-scrollbar-thumb {
+    background: #53e6d0 !important;
+    border-radius: 8px !important;
+  }
+  header .nav nav.navlinks a,
+  header .nav nav.navlinks a.nav-secondary {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+}
