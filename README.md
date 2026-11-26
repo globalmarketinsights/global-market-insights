@@ -7,11 +7,12 @@ An international educational website about cryptocurrency, forex and financial m
 - Static site generated with Jekyll using GitHub Pages-compatible dependencies.
 - GitHub Actions builds the site and deploys it to GitHub Pages.
 - Pagefind creates a static, browser-based search index during each build.
-- The current project URL uses the repository base path: `/global-market-insights`.
+- Live website: https://globalmarketinsights.github.io/
+- The site is published at the repository root with an empty Jekyll `baseurl`.
 
 ## Publishing
 
-The workflow is in `.github/workflows/pages.yml`. In the repository's **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**. Pushes to `main` (and the temporary `site-foundation` branch while testing) trigger a build and deployment.
+The workflow is in `.github/workflows/pages.yml`. In the repository's **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**. Pushes to `main` trigger a build and deploy to GitHub Pages.
 
 ## Content and monetization principles
 
