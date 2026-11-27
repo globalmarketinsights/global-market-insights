@@ -133,3 +133,101 @@ if(pipForm) pipForm.addEventListener("submit",event=>{
   const label=estimate>0?"Illustrative profit":estimate<0?"Illustrative loss":"Break-even movement";
   showResult("pip-result",`Pip movement: <strong>${pips.toFixed(2)} pips</strong><br>${label}: <strong>${money(Math.abs(estimate))}</strong><br>Estimated result in account currency: <strong>${estimate<0?"−":""}${money(Math.abs(estimate))}</strong>`);
 });
+
+// Google Analytics 4 — loads only after a visitor accepts analytics.
+(function(){
+  const measurementId="G-RH6PLQWFLZ";
+  const storageKey="gmi-analytics-choice";
+  let choice=null;
+  try { choice=localStorage.getItem(storageKey); } catch(e) {}
+  let analyticsLoaded=false;
+
+  function loadAnalytics(){
+    if(analyticsLoaded) return;
+    analyticsLoaded=true;
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
+    window.gtag("js",new Date());
+    window.gtag("config",measurementId);
+    const script=document.createElement("script");
+    script.async=true;
+    script.src="https://www.googletagmanager.com/gtag/js?id="+measurementId;
+    document.head.appendChild(script);
+  }
+
+  function saveChoice(value){
+    choice=value;
+    try { localStorage.setItem(storageKey,value); } catch(e) {}
+    const banner=document.getElementById("gmi-analytics-consent");
+    if(banner) banner.remove();
+    if(value==="accepted") loadAnalytics();
+  }
+
+  function showBanner(){
+    if(document.getElementById("gmi-analytics-consent")) return;
+    const banner=document.createElement("section");
+    banner.id="gmi-analytics-consent";
+    banner.setAttribute("role","region");
+    banner.setAttribute("aria-label","Analytics privacy choices");
+    banner.style.cssText="position:fixed;z-index:9998;left:12px;right:12px;bottom:12px;max-width:760px;margin:0 auto;padding:16px;background:#fff;color:#172033;border:1px solid #cbd5e1;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.22);font:14px/1.5 Arial,sans-serif";
+    const message=document.createElement("p");
+    message.style.cssText="margin:0 0 12px;color:#172033";
+    message.textContent="We use Google Analytics to understand website visits and improve Global Market Insights. Analytics is optional and will only load if you accept. You can change your choice using Privacy choices in the footer. Read our Privacy notice for details.";
+    const actions=document.createElement("div");
+    actions.style.cssText="display:flex;gap:10px;flex-wrap:wrap";
+    function makeButton(label,value,primary){
+      const button=document.createElement("button");
+      button.type="button";
+      button.textContent=label;
+      button.style.cssText="padding:9px 15px;border-radius:7px;border:1px solid "+(primary?"#123b70":"#64748b")+";background:"+(primary?"#123b70":"#fff")+";color:"+(primary?"#fff":"#172033")+";font-weight:600;cursor:pointer";
+      button.addEventListener("click",()=>saveChoice(value));
+      return button;
+    }
+    actions.appendChild(makeButton("Accept analytics","accepted",true));
+    actions.appendChild(makeButton("Reject analytics","rejected",false));
+    banner.appendChild(message);
+    banner.appendChild(actions);
+    document.body.appendChild(banner);
+  }
+
+  // Add a persistent way to reopen the choice without changing the site navigation.
+  const footerLinks=document.querySelector(".footer-links");
+  if(footerLinks && !footerLinks.querySelector('[data-gmi-privacy-choices]')){
+    const link=document.createElement("a");
+    link.href="#privacy-choices";
+    link.textContent="Privacy choices";
+    link.setAttribute("data-gmi-privacy-choices","true");
+    link.addEventListener("click",event=>{
+      event.preventDefault();
+      showBanner();
+    });
+    footerLinks.appendChild(link);
+  }
+
+  // Track partner and ebook outbound clicks after consent.
+  document.addEventListener("click",function(event){
+    if(choice!=="accepted" || typeof window.gtag!=="function") return;
+    const link=event.target.closest && event.target.closest("a[href]");
+    if(!link) return;
+    let url;
+    try { url=new URL(link.href,window.location.href); } catch(e) { return; }
+    if(url.hostname==="partner.bybit.com" || url.hostname==="affs.click"){
+      window.gtag("event","affiliate_click",{
+        partner:url.hostname==="partner.bybit.com"?"Bybit":"XM",
+        link_url:url.href,
+        link_text:(link.textContent||"").trim().slice(0,100),
+        transport_type:"beacon"
+      });
+    } else if(url.hostname==="selar.com"){
+      window.gtag("event","ebook_store_click",{
+        link_url:url.href,
+        link_text:(link.textContent||"").trim().slice(0,100),
+        transport_type:"beacon"
+      });
+    }
+  });
+
+  if(choice==="accepted") loadAnalytics();
+  else if(choice!=="rejected") showBanner();
+})();
+
